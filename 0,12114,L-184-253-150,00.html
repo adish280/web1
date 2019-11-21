@@ -1,0 +1,221 @@
+
+<!-- saved from url=(0092)https://www.ynet.co.il/Ext/Comp/Ticker/Dhtml_Flash_Ticker/0,12114,L-184-253-150,00.html?js=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="Expires" content="Tue, 20 Jun 1995 04:13:09 GMT"><script type="text/javascript" src="./jquery-1.4.2.min.js.הורדה"></script><script>yq=jQuery.noConflict();(function(){getJSContentData = function (onFinish) {var LanguageDirection  = 'rtl';            var LangDir = 'rtl';yq.ajax({ url: '/Ext/Comp/Ticker/JS_Ticker_Data/0,13760,L-184,00.html',  success: function(res){                   var theJsTickerwidth;if (150>=132) {theJsTickerwidth = 131;} else {theJsTickerwidth = 150-1;}yq('#getJSContent').html(res);yq('#aTicker table, #bTicker table').css('direction',LanguageDirection);
+yq('#aTicker table, #bTicker table').css('width',theJsTickerwidth);if (onFinish){onFinish();}Tck_Init();}});}})();</script><meta name="GENERATOR" content="Microsoft Visual Studio 6.0"><title></title><script language="JavaScript">
+<!--
+
+
+	function getFlashVersion(){
+	  // ie
+	  try {
+		try {
+		  // avoid fp6 minor version lookup issues
+		  // see: http://blog.deconcept.com/2006/01/11/getvariable-setvariable-crash-internet-explorer-flash-6/
+		  var axo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash.6');
+		  try { axo.AllowScriptAccess = 'always'; }
+		  catch(e) { return '6,0,0'; }
+		} catch(e) {}
+		return new ActiveXObject('ShockwaveFlash.ShockwaveFlash').GetVariable('$version').replace(/D+/g, ',').match(/^,?(.+),?$/)[1];
+	  // other browsers
+	  } catch(e) {
+		try {
+		  if(navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin){
+			return (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description.replace(/D+/g, ",").match(/^,?(.+),?$/)[1];
+		  }
+		} catch(e) {}
+	  }
+	  return '0,0,0';
+	}
+ 
+	var version  = getFlashVersion().split(',').shift(),
+		hasFlash = version != '0' ? true : false,
+		isIE9	 = navigator.userAgent.indexOf('Trident/5.0') > -1;
+	
+	function getFlashMovieObject(movieName)
+	{
+		if (window.document[movieName]) 
+		{
+			return window.document[movieName];
+		}
+		if (navigator.appName.indexOf("Microsoft Internet")==-1)
+		{
+			if (document.embeds && document.embeds[movieName])
+				return document.embeds[movieName]; 
+		}
+		else // if (navigator.appName.indexOf("Microsoft Internet")!=-1)
+		{
+			return document.getElementById(movieName);
+		}
+	}
+	function openWin(my_var) {
+		
+			window.open(my_var,'NewsFlash','menubar=no,resizable=no,scrollbars=yes,width=450,height=470');
+			}
+	function RunScroll()
+	{
+		var TickerObj = getFlashMovieObject("FlashTicker");
+		TickerObj.SetVariable("/:pause", "0");
+	}
+	function StopScroll()
+	{
+		var TickerObj = getFlashMovieObject("FlashTicker");
+		TickerObj.SetVariable("/:pause", "1");
+	}
+	
+
+//JS content Data script///////////////////////////////////////////////////////////////////
+		var enabled=true;
+		var msinterval=40;
+		var maxiters=10;
+		var lastime=(new Date()).getTime();
+		
+	function Tck_Init()	{
+		var a=document.getElementById('aTicker');
+		var b=document.getElementById('bTicker');
+		a.style.top = 130;
+		b.style.top = a.offsetHeight +130;
+		var Tck_Roll=function(){
+			var a=document.getElementById('aTicker');
+			var b=document.getElementById('bTicker');
+			a.style.top = parseInt(a.style.top)-1;
+			b.style.top = parseInt(b.style.top)-1;
+			if(parseInt(a.style.top) < -a.offsetHeight) a.style.top = a.offsetHeight;
+			if(parseInt(b.style.top) < -b.offsetHeight) b.style.top = b.offsetHeight;
+		};
+		var rollfunc=function(){
+			var curtime=(new Date()).getTime();
+			if (enabled && (curtime-lastime>msinterval)) {
+				var iters=Math.round((curtime-lastime)/msinterval);
+				if (iters>maxiters) iters=maxiters;
+				for(var i=0;i<Math.round((curtime-lastime)/msinterval);i++){
+					Tck_Roll();
+				};
+				lastime=curtime;
+			};
+			setTimeout(function(){rollfunc();},7);
+		};
+		window.Tck_stopRoll=function(){
+			enabled=false;
+		};
+		window.Tck_startRoll=function(){
+			enabled=true;
+			lastime=(new Date()).getTime();
+			setTimeout(function(){rollfunc();},7);
+		};
+		window.Tck_startRoll();
+
+	};
+
+	function openWin(my_var) {
+		window.open(my_var,'NewsFlash','menubar=no,resizable=no,scrollbars=yes,width=460,height=550');
+	};
+
+	
+//-->
+</script><script src="./AC_RunActiveContent.js.הורדה" type="text/javascript"></script></head>
+ 
+
+
+
+
+
+
+
+
+<body leftmargin="0" bottommargin="0" topmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<form>
+
+<script language="JavaScript">
+ 
+
+<!--
+if (hasFlash) {
+	var isInternetExplorer = navigator.appName.indexOf("Microsoft") != -1;
+	// Handle all the FSCommand messages in a Flash movie.
+	function FlashTicker_DoFSCommand(command, args) {
+		//var TickerObj = isInternetExplorer ? document.all.FlashTicker : document.FlashTicker;
+		var TickerObj = getFlashMovieObject("FlashTicker");
+		if (command=='OpenPopup')
+		{
+			openWin("http://www.ynet.co.il" + args);
+		}
+	}
+	// Hook for Internet Explorer.
+	if (navigator.appName && navigator.appName.indexOf("Microsoft") != -1 && navigator.userAgent.indexOf("Windows") != -1 && navigator.userAgent.indexOf("Windows 3.1") == -1) {
+		document.write('<script language="VBScript">\n');
+		document.write('On Error Resume Next\n');
+		document.write('Sub FlashTicker_FSCommand(ByVal command, ByVal args)\n');
+		document.write('	Call FlashTicker_DoFSCommand(command, args)\n');
+		document.write('End Sub\n');
+		document.write('</script>\n');
+	}
+}
+//-->
+
+</script>
+
+<div id="getJSContent" style="position: static; overflow: hidden; height: 253px; width: 131px; direction: rtl; text-align: right; display: block;">
+
+
+
+ <meta http-equiv="Expires" content="Tue, 20 Jun 1995 04:13:09 GMT">
+
+	<style>
+
+	A.tickerTextA:link {COLOR: #000000; FONT-FAMILY: Arial; FONT-SIZE: 14px; FONT-WEIGHT: normal; TEXT-DECORATION: none;}
+	A.tickerTextA:visited {COLOR: #000000; FONT-FAMILY: Arial; FONT-SIZE: 14px; FONT-WEIGHT: normal; TEXT-DECORATION: none;}
+	A.tickerTextA:active {COLOR: #000000; FONT-FAMILY: Arial; FONT-SIZE: 14px; FONT-WEIGHT: normal; TEXT-DECORATION: none;}
+	A.tickerTextA:hover {COLOR: #ff0000; FONT-FAMILY: Arial; FONT-SIZE: 14px; FONT-WEIGHT: normal; TEXT-DECORATION: none;}
+
+	A.mivzak_red:link, A.mivzak_red:active {COLOR: #E61413;}
+	
+	.DateCaption {COLOR: #9F1416; FONT-FAMILY: Arial; FONT-SIZE: 13px; font-weight : 700; padding-left:2px;}
+	.mivzak_bold {font-weight : 700;font-size:14px;}
+	</style>
+	
+
+	<div id="aTicker" style="position: absolute; padding: 0px 1px; top: -486px;">
+		<table bgcolor="#FFFFFF" onmouseover="Tck_stopRoll()" onmouseout="Tck_startRoll()" height="100%" cellspacing="0" cellpadding="0" border="0" dir="rtl" style="direction: rtl; width: 131px;"><tbody><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 07:40</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629399_184,00.html&quot;)" class="tickerTextA " lang="he">פצוע קשה בתאונה בין משאית לרכב בנגב</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 07:30</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629396_184,00.html&quot;)" class="tickerTextA " lang="he">נתניהו שב וקורא לגנץ: "בוא למשא ומתן מיידי, ללא תנאים מוקדמים"</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 07:22</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629394_184,00.html&quot;)" class="tickerTextA " lang="he">רוסיה חשפה: מטוסי חיל האוויר עברו השבוע בשמי ירדן בדרך לתקיפה</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 07:03</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629390_184,00.html&quot;)" class="tickerTextA " lang="he">התחזית: מעונן חלקית ויבש, ללא שינוי ניכר בטמפרטורות</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 06:38</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629388_184,00.html&quot;)" class="tickerTextA " lang="he">ברני סנדרס: "אני פרו-ישראלי, אבל צריך לדאוג לפלסטינים"</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 05:13</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629365_184,00.html&quot;)" class="tickerTextA " lang="he">שר ההגנה האמריקני: "לא מתכננים להוציא 4,000 חיילים מדרום קוריאה"</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 04:14</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629364_184,00.html&quot;)" class="tickerTextA " lang="he">טראמפ: "אין הסכם סחר עם סין כי היא לא מתקדמת במו"מ"</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 03:01</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629346_184,00.html&quot;)" class="tickerTextA " lang="he">רעידת אדמה בעוצמה 6.1 הורגשה בגבול תאילנד-לאוס</a></td></tr><tr><td>&nbsp;</td></tr></tbody></table>
+	</div>
+	<div id="bTicker" style="position: absolute; padding: 0px 1px; top: 178px;">
+		<table bgcolor="#FFFFFF" onmouseover="Tck_stopRoll()" onmouseout="Tck_startRoll()" height="100%" cellspacing="0" cellpadding="0" border="0" dir="rtl" style="direction: rtl; width: 131px;"><tbody><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 07:40</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629399_184,00.html&quot;)" class="tickerTextA " lang="he">פצוע קשה בתאונה בין משאית לרכב בנגב</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 07:30</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629396_184,00.html&quot;)" class="tickerTextA " lang="he">נתניהו שב וקורא לגנץ: "בוא למשא ומתן מיידי, ללא תנאים מוקדמים"</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 07:22</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629394_184,00.html&quot;)" class="tickerTextA " lang="he">רוסיה חשפה: מטוסי חיל האוויר עברו השבוע בשמי ירדן בדרך לתקיפה</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 07:03</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629390_184,00.html&quot;)" class="tickerTextA " lang="he">התחזית: מעונן חלקית ויבש, ללא שינוי ניכר בטמפרטורות</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 06:38</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629388_184,00.html&quot;)" class="tickerTextA " lang="he">ברני סנדרס: "אני פרו-ישראלי, אבל צריך לדאוג לפלסטינים"</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 05:13</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629365_184,00.html&quot;)" class="tickerTextA " lang="he">שר ההגנה האמריקני: "לא מתכננים להוציא 4,000 חיילים מדרום קוריאה"</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 04:14</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629364_184,00.html&quot;)" class="tickerTextA " lang="he">טראמפ: "אין הסכם סחר עם סין כי היא לא מתקדמת במו"מ"</a></td></tr><tr><td>&nbsp;</td></tr><tr valign="top"><td align="right"><font class="DateCaption " dir="ltr">21/11/2019 03:01</font></td></tr><tr><td align="right" style="padding-left:2px;"><a href="javascript:openWin(&quot;/Ext/Comp/CdaNewsFlash/0,2297,L-5629346_184,00.html&quot;)" class="tickerTextA " lang="he">רעידת אדמה בעוצמה 6.1 הורגשה בגבול תאילנד-לאוס</a></td></tr><tr><td>&nbsp;</td></tr></tbody></table>
+	</div>
+
+	
+
+
+</div>
+
+<script type="text/javascript">	
+		
+		if (hasFlash && !isIE9 && (window.location.href.indexOf("js")==-1)) {			
+			AC_FL_RunContent('codebase','http://active.macromedia.com/flash2/cabs/swflash.cab#version=8,0,0,0','id','FlashTicker','width','150','height','253','play','false','swliveconnect','true','name','FlashTicker','src','http://www.ynet.co.il/images/ticker/Dhtml_Flash_Ticker/default_wide?newsxml=http://www.ynet.co.il/Ext/Comp/Ticker/Flash_Ticker_Data/0,12115,L-184,00.html?timestamp=225525453','quality','high','loop','false','menu','0','bgcolor','#FFFFFF','wmode','transparent','pluginspage','http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash','movie','http://www.ynet.co.il/images/ticker/Dhtml_Flash_Ticker/default_wide?newsxml=http://www.ynet.co.il/Ext/Comp/Ticker/Flash_Ticker_Data/0,12115,L-184,00.html?timestamp=225525453' ); //end AC code
+			document.onmouseover = function() {
+				StopScroll();
+			}
+			document.onmouseout = function() {
+				RunScroll();
+			}
+		} else {
+			var theJsTickerwidth;					
+			if (150>=132) {
+				theJsTickerwidth = 131;
+			} else {
+				theJsTickerwidth = 150-1;
+			}
+			document.getElementById('getJSContent').style.width = theJsTickerwidth;
+			document.getElementById('getJSContent').style.display = 'inline';
+
+			getJSContentData();	
+		}
+		
+</script>
+
+</form>
+
+
+
+</body></html>

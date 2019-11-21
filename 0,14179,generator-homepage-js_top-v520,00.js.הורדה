@@ -1,0 +1,1 @@
+(function(){var __VOID__='test';})();
